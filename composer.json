@@ -11,23 +11,39 @@
     ],
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.1.*",
-        "pingpong/menus": "2.1.*",
-        "pingpong/presenters": "2.1.*",
-        "pingpong/trusty": "2.1.*",
-        "pingpong/support": "2.1.*",
-        "intervention/image": "~2"
+        "laravel/framework": "^5.2",
+        "pingpong/menus": "^2.2",
+        "pingpong/presenters": "^2.2",
+        "pingpong/trusty": "^2.2",
+        "pingpong/support": "^2.2",
+        "intervention/image": "^2.3",
+        "almasaeed2010/adminlte": "^2.3"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4",
-        "mockery/mockery": "~0.9"
+        "phpunit/phpunit": "^5.2",
+        "mockery/mockery": "^0.9.4"
     },
     "autoload": {
-        "classmap": [
-        ],
         "psr-4": {
             "Pingpong\\Admin\\": "src/Pingpong/Admin"
         }
     },
-    "minimum-stability": "stable"
+    "repositories": [
+        {
+            "url": "https://github.com/postalservice14/presenters.git",
+            "type": "vcs"
+        },
+        {
+            "url": "https://github.com/postalservice14/trusty.git",
+            "type": "vcs"
+        }
+    ],
+    "scripts": {
+        "post-install-cmd": [
+            "cp -r vendor/almasaeed2010/adminlte/ public/adminlte/"
+        ],
+        "post-update-cmd": [
+            "cp -r vendor/almasaeed2010/adminlte/ public/adminlte/"
+        ]
+    }
 }
